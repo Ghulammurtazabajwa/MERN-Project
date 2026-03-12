@@ -5,7 +5,8 @@ import dotenv from "dotenv";
 import colors from "colors";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
-// import authRoutes from "./router/authRoutes.js";
+import errorHandler from "./middlewares/errorMiddleware.js";
+import authRoutes from "./router/authRoutes.js";
 // import adminRoutes from "./router/adminRoutes.js";
 // import userRoutes from "./router/userRoutes.js";
 
@@ -31,9 +32,10 @@ app.use(
   }),
 );
 app.use(morgan("dev"));
+app.use(errorHandler);
 
 // Routes
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 // app.use("/api/admin", adminRoutes);
 // app.use("/api/user", userRoutes);
 
