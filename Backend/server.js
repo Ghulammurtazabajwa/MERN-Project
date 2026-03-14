@@ -6,7 +6,11 @@ import colors from "colors";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import errorHandler from "./middlewares/errorMiddleware.js";
-// import authRoutes from "./router/authRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
+// Import Models
+import "./models/User.js";
+import "./models/Category.js";
+import "./models/Post.js";
 
 // Enable console colors
 colors.enable();
@@ -33,7 +37,7 @@ app.use(morgan("dev"));
 app.use(errorHandler);
 
 // Routes
-// app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 // Start server
 app.listen(PORT, () => {

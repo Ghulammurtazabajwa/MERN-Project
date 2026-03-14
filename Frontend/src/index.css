@@ -123,6 +123,132 @@ p {
   margin: 0;
 }
 
+main {
+  padding: 2rem;
+}
+
+/* Form Register Login Forgot Password */
+.form {
+  width: 40%;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+form label {
+  font-weight: bold;
+}
+form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button,
+.social-login {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #2563eb;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.social-login {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+form button:hover,
+.social-login:hover {
+  background-color: #1d4ed8;
+}
+
+.form a {
+  color: #2563eb;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
+.form h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.form p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Create Post Form */
+.create-post {
+  width: 60%;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+}
+
+.create-post form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.create-post form div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+.create-post form label {
+  font-weight: bold;
+}
+.create-post form input,
+.create-post form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.create-post form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.create-post form select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.create-post form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #2563eb;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.create-post form button:hover {
+  background-color: #1d4ed8;
+}
+.create-post h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.create-post p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
   /* Navbar */
   .menu-toggle {
@@ -167,5 +293,13 @@ p {
   }
   .sidebar-link span {
     display: none;
+  }
+  /* Form Register Login Forgot Password */
+  .form {
+    width: 100%;
+  }
+  /* Create Post Form */
+  .create-post {
+  width: 100%;
   }
 }
