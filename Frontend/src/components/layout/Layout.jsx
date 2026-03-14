@@ -7,10 +7,8 @@ export const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Navbar />
-      <div className="layout-container">
-        <Sidebar />
-        <main className="main-content">{children}</main>
-      </div>
+      <Sidebar />
+      <main className="main-content">{children}</main>
       <Footer />
     </div>
   );
