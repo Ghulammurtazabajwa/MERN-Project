@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export const PostCard = ({ post }) => {
   return (
@@ -11,11 +11,16 @@ export const PostCard = ({ post }) => {
           <Link to={`/post/${post.slug}`}>{post.title}</Link>
         </h2>
 
-        <p className="post-desc">{post.metaDescription}</p>
+        <p className="post-description">{post.metaDescription}</p>
 
         <div className="post-meta">
-          <span>Author: {post.author?.name}</span>
-          <span>Category: {post.category?.name}</span>
+          <span className="author">Author: {post.author?.name}</span>
+
+          <span className="category">Category: {post.category?.name}</span>
+
+          <span className="date">
+            {new Date(post.createdAt).toLocaleDateString()}
+          </span>
         </div>
 
         <Link to={`/post/${post.slug}`} className="read-btn">

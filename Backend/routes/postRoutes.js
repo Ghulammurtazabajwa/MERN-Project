@@ -6,6 +6,7 @@ import {
   updatePost,
   deletePost,
 } from "../controllers/postController.js";
+import { authenticateAdmin } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -14,8 +15,8 @@ router.get("/", getPosts);             // GET /api/posts - all posts with filter
 router.get("/:slug", getPostBySlug);  // GET /api/posts/:slug - single post by slug
 
 // 🟢 Protected / Admin Routes (Add auth middleware if needed)
-router.post("/", createPost);          // POST /api/posts - create new post
-router.put("/:id", updatePost);        // PUT /api/posts/:id - update post
-router.delete("/:id", deletePost);     // DELETE /api/posts/:id - delete post
+router.post("/", authenticateAdmin, createPost);          // POST /api/posts - create new post
+router.put("/:id", authenticateAdmin, updatePost);        // PUT /api/posts/:id - update post
+router.delete("/:id", authenticateAdmin, deletePost);     // DELETE /api/posts/:id - delete post
 
 export default router;

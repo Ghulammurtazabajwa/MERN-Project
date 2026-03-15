@@ -88,8 +88,13 @@ p {
   background-color: #0f172a;
   color: white;
   padding: 1rem;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   transition: width 0.3s;
+  position: sticky;
+  top: 60px;
+  left: 0;
+  z-index: 999;
+
 }
 .sidebar-nav {
   display: flex;

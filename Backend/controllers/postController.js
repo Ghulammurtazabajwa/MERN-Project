@@ -72,7 +72,7 @@ export const createPost = async (req, res) => {
       excerpt,
       slug,
     });
-
+    newPost.author = "699ae8407c2d7812cae660ea"; // TEMP: Set default author ID
     await newPost.save();
 
     res.status(201).json({ success: true, data: newPost });

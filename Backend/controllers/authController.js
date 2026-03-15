@@ -1,10 +1,4 @@
 import User from "../models/User.js";
-import {
-  forgotPasswordSchema,
-  loginSchema,
-  registerSchema,
-  resetPasswordSchema,
-} from "../utils/authSchema.js";
 import crypto from "crypto";
 import sendEmail from "../utils/sendEmail.js";
 
@@ -19,8 +13,7 @@ const COOKIE_OPTIONS = {
 // Register a new user
 export const registerController = async (req, res) => {
   try {
-    const parsed = registerSchema.parse(req.body);
-    const { username, email, address, phone, password } = parsed;
+    const { username, email, address, phone, password } = req.body;
 
     // Check if email already exists
     const existingUser = await User.findOne({ email });
@@ -47,8 +40,7 @@ export const registerController = async (req, res) => {
 // Login user
 export const loginController = async (req, res) => {
   try {
-    const parsed = loginSchema.parse(req.body);
-    const { email, password } = parsed;
+    const { email, password } = req.body;
 
     // Find user by email
     const user = await User.findOne({ email });
@@ -83,8 +75,7 @@ export const loginController = async (req, res) => {
 // Forgot Password
 export const forgotPasswordController = async (req, res) => {
   try {
-    const parsed = forgotPasswordSchema.parse(req.body);
-    const { email } = parsed;
+    const { email } = req.body;
 
     // Find user by email
     const user = await User.findOne({ email });
@@ -113,8 +104,7 @@ export const forgotPasswordController = async (req, res) => {
 // Reset Password
 export const resetPasswordController = async (req, res) => {
   try {
-    const parsed = resetPasswordSchema.parse(req.body);
-    const { password } = parsed;
+    const { password } = req.body;
     const { token } = req.params;
 
     // Find user by reset token and check if it's still valid
