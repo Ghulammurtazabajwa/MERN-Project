@@ -38,7 +38,7 @@ const userSchema = new Schema(
     },
     googleId: { type: String, default: null },
     facebookId: String,
-    provider: { type: String, enum: ["local", "google", "facebook"] },
+    provider: { type: String, enum: ["local", "google", "facebook"], default: "local", },
     avatar: String,
     refreshToken: String,
     resetPasswordToken: String,
@@ -57,10 +57,9 @@ const userSchema = new Schema(
 );
 
 // Hash password
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
   this.password = await argon2.hash(this.password);
-  next();
 });
 
 // Compare password

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
+import { useAuth } from "../context/authContext.jsx";
 
 export const Navbar = () => {
+  const { accessTokenMemory, user } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -17,7 +19,9 @@ export const Navbar = () => {
       </button>
       <form className="search-box">
         <input className="search-input" type="text" placeholder="Search..." />
-        <button className="search-btn" type="submit">Search</button>
+        <button className="search-btn" type="submit">
+          Search
+        </button>
       </form>
       <nav className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <NavLink to="/" onClick={closeMenu}>
@@ -29,22 +33,22 @@ export const Navbar = () => {
         <NavLink to="/contact" onClick={closeMenu}>
           Contact
         </NavLink>
-        {!localStorage.getItem("accessToken") ? (
-          <>
-            <NavLink to="/login" onClick={closeMenu}>
-              Login
-            </NavLink>
-            <NavLink to="/register" onClick={closeMenu}>
-              Register
-            </NavLink>
-          </>
-        ) : (
+        {accessTokenMemory || user ? (
           <>
             <NavLink to="/profile" onClick={closeMenu}>
               Profile
             </NavLink>
             <NavLink to="/logout" onClick={closeMenu}>
               Logout
+            </NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/login" onClick={closeMenu}>
+              Login
+            </NavLink>
+            <NavLink to="/register" onClick={closeMenu}>
+              Register
             </NavLink>
           </>
         )}

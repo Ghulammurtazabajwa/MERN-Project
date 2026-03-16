@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/categories"; // Backend URL
+const API_URL = "http://localhost:5000/api/category"; // Backend URL
 
 export const getCategories = async (params = {}) => {
   const res = await axios.get(API_URL, { params });

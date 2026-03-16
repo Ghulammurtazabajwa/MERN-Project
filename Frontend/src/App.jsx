@@ -8,9 +8,10 @@ import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 
 // Auth Page
-import { Register } from "./pages/auth/Register";
-import { Login } from "./pages/auth/Login";
-import { ForgotPassword } from "./pages/auth/ForgotPassword";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import Logout from "./pages/auth/Logout";
 
 // Post Page
 import { PostCard } from "./components/PostCard";
@@ -39,6 +40,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/logout" element={<Logout />} />
 
         {/* Post Page */}
         <Route path="/post-card" element={<PostCard />} />
@@ -47,7 +49,7 @@ function App() {
         <Route path="/posts/:slug/edit" element={<EditPost />} />
 
         {/* Category Page */}
-        <Route path="/categories" element={<CategoryList />} />
+        <Route path="/category" element={<CategoryList />} />
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="/edit-category/:slug/edit" element={<EditCategory />} />
 

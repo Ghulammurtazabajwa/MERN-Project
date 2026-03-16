@@ -1,11 +1,30 @@
-export const authenticateAdmin = (req, res, next) => {
-  // For simplicity, we are using a hardcoded admin token.
-  // In a real application, you would verify a JWT or session.
-  const adminToken = req.headers["authorization"];
+export const authenticateUser = async (req, res, next) => {
+  try {
 
-  if (adminToken === "Bearer admin-secret-token") {
-    next(); // User is authenticated as admin, proceed to the next middleware or route handler
-  } else {
-    res.status(401).json({ message: "Unauthorized: Admin access required" });
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+
+    req.user = decoded;
+
+    next();
+
+  } catch (error) {
+    return res.status(401).json({ message: "Invalid token" });
   }
+};
+
+export const authorizeAdmin = (req, res, next) => {
+
+  if (req.user.role !== "admin") {
+    return res.status(403).json({ message: "Admin access required" });
+  }
+
+  next();
 };

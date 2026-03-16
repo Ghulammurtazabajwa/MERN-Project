@@ -16,7 +16,7 @@ export const CreateCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("/api/categories", {
+    await fetch("/api/category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

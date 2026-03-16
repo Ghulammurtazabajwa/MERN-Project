@@ -36,10 +36,10 @@ app.use(morgan("dev"));
 app.use(errorHandler);
 
 // Routes
-app.use("/api", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/products", productRoutes);
-app.use("/api/categories", categoryRoutes);
+app.use("/api/category", categoryRoutes);
 
 // Start server
 app.listen(PORT, () => {

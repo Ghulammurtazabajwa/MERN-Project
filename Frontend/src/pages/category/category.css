@@ -1,0 +1,81 @@
+/* Category List */
+.category-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  font-family: Arial, sans-serif;
+}
+
+.category-h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Create Button */
+.create-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.create-btn:hover {
+  background: #0056b3;
+}
+
+/* Table */
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.category-th,
+.category-td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.category-th {
+  background: #f4f4f4;
+}
+
+/* Action Buttons */
+.edit-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #1e7e34;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b02a37;
+}
+
+/* Row Hover */
+.category-tbody .category-tr:hover {
+  background: #f9f9f9;
+}
+
