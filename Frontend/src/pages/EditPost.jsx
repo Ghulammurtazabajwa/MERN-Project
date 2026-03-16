@@ -26,7 +26,7 @@ export const EditPost = () => {
 
     e.preventDefault();
 
-    await fetch(`/api/posts/${id}`, {
+    await fetch(`/api/posts/${id}/edit`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

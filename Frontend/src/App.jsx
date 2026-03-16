@@ -14,7 +14,7 @@ import { CreatePost } from "./pages/CreatePost";
 import { EditPost } from "./pages/EditPost";
 import { CategoryList } from "./pages/CategoryList";
 import { CreateCategory } from "./pages/CreateCategory";
-
+import { EditCategory } from "./pages/EditCategory";
 function App() {
   return (
     <Layout>
@@ -32,6 +32,7 @@ function App() {
         <Route path="/posts/:slug/edit" element={<EditPost />} />
         <Route path="/categories" element={<CategoryList />} />
         <Route path="/create-category" element={<CreateCategory />} />
+        <Route path="/edit-category/:slug/edit" element={<EditCategory />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </Layout>

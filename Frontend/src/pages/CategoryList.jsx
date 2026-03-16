@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 export const CategoryList = () => {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/api/categories")
@@ -17,11 +19,19 @@ export const CategoryList = () => {
     setCategories(categories.filter((cat) => cat._id !== id));
   };
 
+  const editCategory = (id) => {
+    navigate(`/edit-category/${id}/edit`);
+  };
+
   return (
     <div className="category-list">
-      <button onClick={() => (window.location.href = "/create-category")}>
+      <button
+        className="create-btn"
+        onClick={() => navigate("/create-category")}
+      >
         Create New Category
       </button>
+
       <h2>Categories</h2>
 
       <table>
@@ -41,11 +51,16 @@ export const CategoryList = () => {
               <td>{cat.slug}</td>
 
               <td>
-                <button onClick={() => deleteCategory(cat._id)}>Delete</button>
                 <button
-                  onClick={() =>
-                    (window.location.href = `/edit-category/${cat._id}`)
-                  }
+                  className="delete-btn"
+                  onClick={() => deleteCategory(cat._id)}
+                >
+                  Delete
+                </button>
+
+                <button
+                  className="edit-btn"
+                  onClick={() => editCategory(cat._id)}
                 >
                   Edit
                 </button>
