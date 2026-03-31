@@ -16,15 +16,35 @@ export const CreateCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("/api/category", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+    try {
+      const token = localStorage.getItem("token");
 
-    alert("Category Created");
+      const res = await fetch("http://localhost:5000/api/category", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || "Failed to create category");
+        return;
+      }
+
+      alert("Category Created");
+
+      setForm({
+        name: "",
+        slug: "",
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong");
+    }
   };
 
   return (
@@ -35,12 +55,14 @@ export const CreateCategory = () => {
         <input
           name="name"
           placeholder="Category Name"
+          value={form.name}
           onChange={handleChange}
         />
 
         <input
           name="slug"
           placeholder="Category Slug"
+          value={form.slug}
           onChange={handleChange}
         />
 

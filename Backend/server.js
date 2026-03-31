@@ -5,10 +5,10 @@ import dotenv from "dotenv";
 import colors from "colors";
 import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/authRoutes.js"; // Import auth routes when implemented
-import postRoutes from "./routes/postRoutes.js"; // import post routrs when implemented
-import productRoutes from "./routes/productRoutes.js"; // Import product routes when implemented
-import categoryRoutes from "./routes/categoryRoutes.js"; // Import category routes when implemented
+import authRoutes from "./routes/authRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 
 // Enable console colors

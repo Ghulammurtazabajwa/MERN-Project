@@ -24,6 +24,8 @@ import { CategoryList } from "./pages/category/CategoryList";
 import { CreateCategory } from "./pages/category/CreateCategory";
 import { EditCategory } from "./pages/category/EditCategory";
 
+import { Profile } from "./components/Profile";
+
 // CSS Custom File
 import "./App.css";
 
@@ -53,6 +55,7 @@ function App() {
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="/edit-category/:slug/edit" element={<EditCategory />} />
 
+        <Route path="/profile" element={<Profile />} />
         {/* Not Fount Page */}
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
